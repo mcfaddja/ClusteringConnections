@@ -1,0 +1,50 @@
+\documentclass[../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+
+We will create two "\emph{Connection Matrices}" from $\mat{L}$.  These matrices represent the connections among all of the row elements of $\mat{L}$ or among all of the column elements of $\mat{L}$.  They will provide the information required for clustering either the rows of $\mat{L}$ or for clustering the columns of $\mat{L}$.
+
+
+\subsection{Row Connection Matrix}
+
+The first of the "\emph{Connection Matrices}" that we will create from $\mat{L}$ is the "\emph{Row Connection Matrix}".  This matrix will be used to provide information for clustering the rows of $\mat{L}$.  We will denote this matrix by $\mat{A}_U \in \R^{m \times m}$ and define it, in terms of $\mat{L}$, according to the expression
+
+\begin{align}
+\mat{A}_U = \mat{L} \, \mat{L}^\intercal
+\end{align}
+
+We may also use the alternate definition 
+
+\begin{align}
+\left( \mat{A}_U \right)_{ij} = \sum_{k = 1}^n \left\{ \delta^\star \left( \mat{L}, i, k \right) \, \mat{L}_{jk} \right\} \tag{1.4.1a}
+\end{align}
+
+where $i, j \in \left[ 1, m \right] \subset \Z^+$.
+
+
+\subsection{Column Connection Matrix}
+
+The second "\emph{Connection Matrix}" to be created from $\mat{L}$ is the "\emph{Column Connection Matrix}".  This matrix will be used to provide information for clustering the columns of $\mat{L}$.  We will denote this matrix by $\mat{A}_V \in \R^{n \times n}$ and define it, in terms of $\mat{L}$, according to the expression
+
+\begin{align}
+\mat{A}_V = \mat{L}^\intercal \, \mat{L}
+\end{align}
+
+We may also use the alternate definition 
+
+\begin{align}
+\left( \mat{A}_V \right)_{ij} = \sum_{k = 1}^m \left\{ \delta^\star \left( \mat{L}, k, i \right) \, \mat{L}_{kj} \right\} \tag{1.4.2a}
+\end{align}
+
+where $i, j \in \left[ 1, n \right] \subset \Z^+$.
+
+
+\end{large}
+\end{flushleft}
+\end{document}

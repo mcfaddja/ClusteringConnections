@@ -1,0 +1,47 @@
+\documentclass[../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+We will be using both the full SVD of $\mat{L}$ and the $\kappa$th order approximate SVD of $\mat{L}$ where the order of the approximate SVD, $\kappa$, must satisfy the relation
+
+\begin{align*}
+\kappa < r
+\end{align*} 
+
+with $r$ defined as
+
+\begin{align} 
+r = \text{rank} \left[ \mat{L} \right] \label{eq:rank}
+\end{align}
+
+
+\subsection{Full SVD}
+
+Let the full singular value decomposition of $\mat{L}$ be given by
+
+\begin{align*}
+\mat{L} = \mat{U} \, \mat{S} \, \mat{V}^\intercal
+\end{align*}
+
+where $\mat{U} \in \R^{m \times r}$, $\mat{S} \in \R^{r \times r}$, and $\mat{V} \in \R^{n \times r}$ with $r$ as defined as above in \ref{eq:rank}.  We call $\mat{U}$ the "\emph{Row Matrix}" of $\mat{L}$, $\mat{S}$ the "\emph{Singular Value Matrix}" of $\mat{L}$, and $\mat{V}$ the "\emph{Column Matrix}" of $\mat{L}$.
+
+
+\subsection{Approximate SVD}
+
+Let the $\kappa$th order approximate singular value decomposition of $\mat{L}$ be expressed as
+
+\begin{align*}
+\mat{L} = \mat{U}_\kappa \, \mat{S}_\kappa \, \mat{V}_\kappa^\intercal
+\end{align*}
+
+where $\mat{U}_\kappa \in \R^{m \times \kappa}$, $\mat{S}_\kappa \in \R^{\kappa \times \kappa}$, and $\mat{V}_\kappa \in \R^{n \times \kappa}$ with $r$ as defined as above in \ref{eq:rank}.  We call $\mat{U}_\kappa$ the "\emph{Approximate Row Matrix}" or "\emph{Reduced Row Matrix}" of $\mat{L}$, $\mat{S}_\kappa$ the "\emph{Approximate Singular Value Matrix}" or "\emph{Reduced Singular Value Matrix}" of $\mat{L}$, and $\mat{V}_\kappa$ the "\emph{Approximate Column Matrix}" or "\emph{Reduced Column Matrix}" of $\mat{L}$.
+
+
+\end{large}
+\end{flushleft}
+\end{document}

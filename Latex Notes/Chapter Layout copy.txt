@@ -1,0 +1,29 @@
+I. Introduction, Definitions, Datasets, and Metrics
+	1. Introduction
+	2. Definitions
+	3. Datasets
+	4. Metrics
+	
+II. Algorithms
+	5. SVD Signs
+	6. SVD Gaps
+	7. CbC Disjoint
+	8. CbC Joint
+
+III. Time Complexity Analysis
+	9. SVD Signs
+	10. SVD Gaps
+	11. CbC Disjoint
+	12. CbC Joint
+	
+IV. Space Complexity Analysis
+	13. SVD Signs
+	14. SVD Gaps
+	15. CbC Disjoint
+	16. CbC Joint
+
+V. Results and Conclusions
+	17. Reordered Data Comparisons
+	18. Metrics Comparison
+	19. CPU Time and Memory Comparison
+	20. Conclusion.

@@ -1,0 +1,96 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+
+To begin to understand what $\kappa$ is, let us define $r \in \Z^+$ as 
+
+\begin{align*}
+r = \text{rank} \left[ \mat{L} \right]
+\end{align*}
+
+Next, recall the expression for the full Singular Value Decomposition of $\mat{L}$ from chapter 2 written below
+
+\begin{align}
+\mat{L} = \mat{U} \; \mat{S} \; \mat{V}^\intercal,  \notag
+\end{align}
+
+where $\mat{U} \in \R^{m \times r}$, $\mat{S} \in \R^{r \times r}$, and $\mat{V} \in \R^{n \times r}$.  This is expensive to compute, in both time and memory; therefore, we seek something which can be computed for less cost.  \newline
+
+Let us now create new versions of the $\mat{U}$, $\mat{S}$, and $\mat{V}$ matrices, denoted $\mat{U}_\xi$, $\mat{S}_\xi$, and $\mat{V}_\xi$, respectively.  We will define these new versions of the $\mat{U}$, $\mat{S}$, and $\mat{V}$ matrices as such that
+
+\begin{align*}
+\mat{U}_\xi &\in \R^{m \times \xi} \\
+\mat{S}_\xi &\in \R^{\xi \times \xi} \\
+ & \textrm{and} \\
+\mat{V}_\xi &\in \R^{n \times \xi}
+\end{align*}
+
+where $\xi \in \Z++ \ni \xi < r$.  Since $\xi < r$, these new matrices are obviously less expensive to store. Additionally, note that if we compute the matrix product of $\mat{U}_\xi$, $\mat{S}_\xi$, and $\mat{V}_\xi$, we obtain the result
+
+\begin{align}
+\left( \mat{\mathcal{L}} = \mat{U}_\xi \; \mat{S}_\xi \; \mat{V}_\xi^\intercal \right) \in \R^{m \times n}
+\end{align}
+
+which is clearly such that $\mat{\mathcal{L}} \in \R^{m \times n}$.  Since $\mat{S}$ is the \emph{Singular Value Matrix} of $\mat{L}$, its only non-zero elements are the $r$ singular values of $\mat{L}$.  These elements are arranged along the diagonal of $\mat{S}$ and ordered from highest to lowest.  That is to say, for the singular values of $\mat{L}$, $\left\{ \sigma_1, \sigma_2, \dots, \sigma_r \right\}$ we have $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_i \geq \cdots \geq \sigma_r$.  Now, the singular values of $\mat{L}$ can be found by computing the eigenvalues of $\mat{L}^\intercal \mat{L}$ (denoted $\lambda^\star_i$), followed by taking the real component of the square root of each of these eigenvalues.  That is to say, the value of each $\sigma_i$ can be found using the relation
+
+\begin{align}
+\sigma_i = \text{Re} \left[ \sqrt{ \lambda^\star_i } \right]
+\end{align}
+
+
+Thus the diagonal elements of $\mat{S}$, $\left\{ \left( \mat{S} \right)_{11}, \left( \mat{S} \right)_{22}, \dots, \left( \mat{S} \right)_{ii}, \dots, \left( \mat{S} \right)_{rr} \right\}$, are such that 
+
+\begin{align*}
+\left( \mat{S} \right)_{11} \geq \left( \mat{S} \right)_{22} \geq \cdots \geq \left( \mat{S} \right)_{ii} \geq \cdots \geq \left( \mat{S} \right)_{rr}
+\end{align*}
+
+Since our new $\mat{S}_\xi$ is constructed from $\mat{S}$, $\mat{S}_\xi$ also contains the singular values of $\mat{L}$ arranged along its diagonal by magnitude.  Therefore, the elements of $\mat{S}_\xi$ must be such that 
+
+\begin{align*}
+\biggl\{ \Bigl( \mat{S}_\xi \Bigr)_{11}, \Bigl( \mat{S}_\xi \Bigr)_{22}, \dots, \Bigl( \mat{S}_\xi \Bigr)_{\iota \iota}, \dots, \Bigl( \mat{S}_\xi \Bigr)_{\xi \xi} \biggr\} \subset \biggl\{ \Bigl( \mat{S} \Bigr)_{11}, \Bigl( \mat{S} \Bigr)_{22}, \dots, \Bigl( \mat{S} \Bigr)_{ii}, \dots, \Bigl( \mat{S} \Bigr)_{rr} \biggr\}
+\end{align*}
+
+Additionally, since $\xi < r$, we have 
+
+\begin{align*}
+\Biggl| \biggl\{ \Bigl( \mat{S}_\xi \Bigr)_{11}, \Bigl( \mat{S}_\xi \Bigr)_{22}, \dots, \Bigl( \mat{S}_\xi \Bigr)_{\iota \iota}, \dots, \Bigl( \mat{S}_\xi \Bigr)_{\xi \xi} \biggr\} \Biggr| < \Biggl| \biggl\{ \Bigl( \mat{S} \Bigr)_{11}, \Bigl( \mat{S} \Bigr)_{22}, \dots, \Bigl( \mat{S} \Bigr)_{ii}, \dots, \Bigl( \mat{S} \Bigr)_{rr} \biggr\} \Biggr|
+\end{align*}
+
+All that remains is to decide \emph{which} elements of $\mat{S}$ to include in $\mat{S}_\xi$, subject to the criteria above.  Let us 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{large}
+\end{flushleft}
+\end{document}

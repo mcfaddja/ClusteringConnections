@@ -1,0 +1,74 @@
+\documentclass[../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+
+We will now define two sets of 2-tuples.  The first will describe the relation or relations each row element has with all the other row elements; while the second will describe the relation or relations each column element has with all the other column elements.  One of the elements of the 2-tuple represents the other rows or columns that are related to a given row or column.  The other element of the 2-tuple describes the strength of those relations. 
+
+
+\subsection{Row Relation Set}
+
+Let $\mathbb{U}$ be a set of $m$ 2-tuples that can be expressed as
+
+\begin{align*}
+\mathbb{U} = \Bigl\{ \left\{ \mathbb{U}_1, \mathbb{M}_1 \right\}, \left\{ \mathbb{U}_2, \mathbb{M}_2 \right\}, \dots, \left\{ \mathbb{U}_m, \mathbb{M}_m \right\} \Bigr\}
+\end{align*}
+
+where the $\left\{ \mathbb{U}_i, \mathbb{M}_i \right\}$ are 2-tuples where the first element of the tuple, $\mathbb{U}_i$, represents which rows in $\mat{L}$ are connected to the $i$th row of $\mat{L}$; while the second element of the tuple, $\mathbb{M}_i$, describes the strength of those relations, with $i$ such that $i \in \left[ 1, m \right] \subset \Z^+$.  We now define $\mathbb{U}_i$ and $\mathbb{M}_i$ concurrently as
+
+\begin{align}
+\mathbb{U}_i \equiv \left\{ j \; \Bigl| \Bigr. \; j \in \left[ 1, m \right] \subset \Z^+ \text{  and  } \left( \mat{A}_U \right)_{ij} \neq 0 \right\}
+\end{align}
+
+and
+
+\begin{align}
+\mathbb{M}_i \equiv \left\{ \left( \mat{A}_U \right)_{ij} \; \Bigl| \Bigr. \; j \in \left[ 1, m \right] \subset \Z^+ \text{  and  } \left( \mat{A}_U \right)_{ij} \neq 0 \right\}
+\end{align}
+
+respectively.  These definitions require that the expression
+
+\begin{align*}
+\bigl| \mathbb{U}_i \bigr| = \bigl| \mathbb{M}_i \bigr|
+\end{align*}
+
+holds for all $i \in \left[ 1, m \right] \subset \Z^+$.  Additionally, we have defined $\mathbb{U}_i$ and $\mathbb{M}_i$ such that the strength of the connection to the $l$th element in $\mathbb{U}_i$ is represented by the $l$th element of $\mathbb{M}_i$.
+
+
+\subsection{Column Relation Set}
+
+Let $\mathbb{V}$ be a set of $n$ 2-tuples that can be expressed as
+
+\begin{align*}
+\mathbb{V} = \Bigl\{ \left\{ \mathbb{V}_1, \mathbb{N}_1 \right\}, \left\{ \mathbb{V}_2, \mathbb{N}_2 \right\}, \dots, \left\{ \mathbb{V}_n, \mathbb{N}_n \right\} \Bigr\}
+\end{align*}
+
+where the $\left\{ \mathbb{V}_j, \mathbb{N}_j \right\}$ are 2-tuples where the first element of the tuple, $\mathbb{V}_j$, represents which columns in $\mat{L}$ are connected to the $j$th column of $\mat{L}$; while the second element of the tuple, $\mathbb{N}_j$, describes the strength of those relations, with $j$ such that $j \in \left[ 1, n \right] \subset \Z^+$.  We now define $\mathbb{V}_j$ and $\mathbb{N}_j$ concurrently as
+
+\begin{align}
+\mathbb{V}_j \equiv \left\{ i \; \Bigl| \Bigr. \; i \in \left[ 1, n \right] \subset \Z^+ \text{  and  } \left( \mat{A}_V \right)_{ji} \neq 0 \right\}
+\end{align}
+
+and
+
+\begin{align}
+\mathbb{N}_j \equiv \left\{ \left( \mat{A}_V \right)_{ji} \; \Bigl| \Bigr. \; i \in \left[ 1, n \right] \subset \Z^+ \text{  and  } \left( \mat{A}_V \right)_{ji} \neq 0 \right\}
+\end{align}
+
+respectively.  These definitions require that the expression
+
+\begin{align*}
+\bigl| \mathbb{V}_j \bigr| = \bigl| \mathbb{N}_j \bigr|
+\end{align*}
+
+holds for all $j \in \left[ 1, n \right] \subset \Z^+$.  Additionally, we have defined $\mathbb{V}_j$ and $\mathbb{N}_j$ such that the strength of the connection to the $l$th element in $\mathbb{V}_j$ is represented by the $l$th element of $\mathbb{N}_j$.
+
+
+\end{large}
+\end{flushleft}
+\end{document}

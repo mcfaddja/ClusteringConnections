@@ -1,0 +1,36 @@
+\documentclass[../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+Let $\mat{L} \in \R^{m \times n}$ be a matrix which represents how $m$ terms describe a collection of $n$ objects.  We can express this formally as
+
+\begin{align}
+\left( \mat{L} \right)_{ij} \equiv \left\{
+\begin{array}{l l}
+1 & \text{if the $i$th term describes the $j$th object.} \\
+0 & \text{otherwise}
+\end{array}
+\right.
+\end{align}
+
+We may also use the alternative definition
+
+\begin{align}
+\left( \mat{L} \right)_{ij} \equiv \left\{
+\begin{array}{l l}
+x & \text{the $i$th term describes the $j$th object $x$ times} \\
+0 & \text{otherwise}
+\end{array}
+\right.
+\end{align}
+
+In both definitions for the $\left( \mat{L} \right)_{ij}$, we require that $i \in \left[ 1, m \right] \subset \Z^+$ and that $j \in \left[ 1, n \right] \subset \Z^+$.
+
+\end{large}
+\end{flushleft}
+\end{document}

@@ -1,0 +1,25 @@
+\contentsline {part}{I\hspace {1em}Definitions and Descriptions}{5}
+\contentsline {chapter}{\numberline {1}Definitions}{7}
+\contentsline {section}{\numberline {1.1}Input Matrix}{7}
+\contentsline {section}{\numberline {1.2}SVD Matrices}{7}
+\contentsline {subsection}{\numberline {1.2.1}Full SVD}{8}
+\contentsline {subsection}{\numberline {1.2.2}Approximate SVD}{8}
+\contentsline {section}{\numberline {1.3}Useful Functions}{9}
+\contentsline {section}{\numberline {1.4}Connection Matrices}{9}
+\contentsline {subsection}{\numberline {1.4.1}Row Connection Matrix}{9}
+\contentsline {subsection}{\numberline {1.4.2}Column Connection Matrix}{10}
+\contentsline {section}{\numberline {1.5}Relation Sets}{10}
+\contentsline {subsection}{\numberline {1.5.1}Row Relation Set}{11}
+\contentsline {subsection}{\numberline {1.5.2}Column Relation Set}{11}
+\contentsline {section}{\numberline {1.6}Cluster Sets}{12}
+\contentsline {subsection}{\numberline {1.6.1}Row Cluster Set}{13}
+\contentsline {subsection}{\numberline {1.6.2}Column Cluster Set}{13}
+\contentsline {chapter}{\numberline {2}Disjoint Sets}{15}
+\contentsline {section}{\numberline {2.1}Compute $\mathaccentV {bar}016{\mathaccentV {bar}016{\mathbf {A}}}_U$}{16}
+\contentsline {section}{\numberline {2.2}Construct $\mathbb {U}$}{16}
+\contentsline {section}{\numberline {2.3}Complete the $\mathbb {U}$ Sets}{17}
+\contentsline {section}{\numberline {2.4}Construct the $\mathbb {U}^\star $ Sets}{18}
+\contentsline {section}{\numberline {2.5}Compute $\mathaccentV {bar}016{\mathaccentV {bar}016{\mathbf {A}}}_V$}{18}
+\contentsline {section}{\numberline {2.6}Construct $\mathbb {V}$}{19}
+\contentsline {section}{\numberline {2.7}Complete the $\mathbb {V}$ Sets}{20}
+\contentsline {section}{\numberline {2.8}Construct the $\mathbb {V}^\star $ Sets}{21}

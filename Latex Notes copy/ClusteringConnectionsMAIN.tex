@@ -1,0 +1,196 @@
+\documentclass{book}[12pt]
+\setlength{\textheight}{8.75in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\oddsidemargin}{-0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\usepackage{amsfonts, amsmath, amsthm, amssymb,mathrsfs}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage[]{algorithm2e}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{multicol}
+\usepackage{subfiles}
+%\usepackage[subsection]{algorithm}
+\usepackage{caption}% http://ctan.org/pkg/caption
+\captionsetup[ruled]{labelsep=colon}
+\makeatletter
+%\@addtoreset{algorithm}{subsection}% algorithm counter resets every subsection
+%\makeatother
+%\renewcommand{\thealgorithm}{\thesubsection.\arabic{algorithm}}% Algorithm # is <chapter>.<algorithm>
+\pagestyle{fancy}
+\lhead{Jonathan McFadden}
+\chead{\textbf{Clustering by Connection Algorithm}}
+\rhead{\emph{mcfaddja@uw.edu}}
+\headsep = 22pt 
+\headheight = 15pt
+
+\title{Clustering by Connections in \\
+the Input Matrix}
+\date{Summer 2016}
+\author{Jonathan McFadden \\ University of Washington Tacoma \\ mcfaddja@uw.edu}
+
+\doublespacing
+
+% BEGIN PRE-AMBLE
+
+
+% Setup equation numbering 
+\numberwithin{equation}{section} 
+
+%Equation Numbering Shortcut Commands
+\newcommand{\numbch}[1]{\setcounter{section}{#1} \setcounter{equation}{0}}
+\newcommand{\numbpr}[1]{\setcounter{subsection}{#1} \setcounter{equation}{0}}
+\newcommand{\note}{\textbf{NOTE:  }}
+
+%Formatting shortcut commands
+\newcommand{\chap}[1]{\begin{center}\begin{Large}\textbf{\underline{#1}}\end{Large}\end{center}}
+\newcommand{\prob}[1]{\textbf{\underline{Problem #1):}}}
+\newcommand{\sol}[1]{\textbf{\underline{Solution #1):}}}
+\newcommand{\MMA}{\emph{Mathematica }}
+
+%Text Shortcut Command
+\newcommand{\s}[1]{\emph{Side #1}}
+
+% Math shortcut commands
+\newcommand{\dd}[2]{\frac{d #1}{d #2}}
+\newcommand{\ddn}[3]{\frac{d^{#1} #2}{d #3^{#1}}}
+%\newcommand{\dd}[2]{\frac{\textrm{d} #1}{\textrm{d} #2}}
+%\newcommand{\ddn}[3]{\frac{\textrm{d}^{#1} #2}{\textrm{d} #3^{#1}}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdn}[3]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\infint}{\int_{-\infty}^\infty}
+\newcommand{\infiint}{\iint_{-\infty}^\infty}
+\newcommand{\infiiint}{\iiint_{-\infty}^\infty}
+\newcommand{\dint}[2]{\int_{#1}^{#2}}
+\newcommand{\intdd}[1]{\textrm{d}#1}
+\newcommand{\intddd}[1]{\textrm{d}#1}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\mat}[1]{\bar{\bar{\mathbf{#1}}}}
+
+%Math Text
+\newcommand{\rect}{\text{ rect}}
+\newcommand{\csch}{\text{ csch}}
+
+%Physics Shortcut Commands
+\newcommand{\h}{\mathcal{H}}
+
+
+%MRI Stuff Shortcut Commands
+\newcommand{\tno}{t_{n}}
+\newcommand{\tn}[1]{t_{n#1}}
+\newcommand{\Mno}{\vec{M}^{\left( n \right)}}
+\newcommand{\Mn}[1]{\vec{M}^{\left( n #1 \right)}}
+\newcommand{\Mnto}[1]{\vec{M}^{(n)} \left( t_{n} #1 \right)}
+\newcommand{\Mnt}[2]{\vec{M}^{(n #1)} \left( t_{n #1} #2 \right)}
+\newcommand{\rot}[2]{\mat{R}_{#1} \left( #2 \right)}
+\newcommand{\DnMat}[2]{\mat{D} \left( t_{n #1} #2 \right)}
+\newcommand{\rotINV}[2]{\mat{R}^{-1}_{#1} \left( #2 \right)}
+\newcommand{\DnMatINV}[2]{\mat{D}^{-1} \left( t_{n #1} #2 \right)}
+\newcommand{\betaNt}[2]{\beta \left( t_{n #1} #2 \right)}
+\newcommand{\TR}{\textrm{TR}}
+
+
+% END PRE-AMBLE
+
+
+
+\begin{document}
+
+
+\maketitle
+
+\tableofcontents
+
+
+\part{Definitions and Descriptions}
+
+
+\chapter{Definitions}
+
+\section{Input Matrix}
+\subfile{Chapter1/1-1-InputMatrix}
+
+\section{SVD Matrices}
+\subfile{Chapter1/1-2-SVDmatrices}
+
+\section{Useful Functions}
+\subfile{Chapter1/1-3-UsefulFunctions}
+
+\section{Connection Matrices}
+\subfile{Chapter1/1-4-ConnectionMatrices}
+
+\section{Relation Sets}
+\subfile{Chapter1/1-5-RelationSets}
+
+\section{Cluster Sets}
+\subfile{Chapter1/1-6-ClusterSets}
+
+
+\chapter{Disjoint Sets}
+\subfile{Chapter2/2-0-DisjointSets}
+
+\section{Compute $\mat{A}_U$}
+\subfile{Chapter2/2-1-ComputeAu}
+
+\section{Construct $\mathbb{U}$}
+\subfile{Chapter2/2-2-ConstructU}
+
+%\newpage
+\section{Complete the $\mathbb{U}$ Sets}
+\subfile{Chapter2/2-3-CompleteU}
+
+\newpage
+\section{Construct the $\mathbb{U}^\star$ Sets}
+\subfile{Chapter2/2-4-FinalU}
+
+\section{Compute $\mat{A}_V$}
+\subfile{Chapter2/2-5-ComputeAv}
+
+\section{Construct $\mathbb{V}$}
+\subfile{Chapter2/2-6-ConstructV}
+
+\newpage
+\section{Complete the $\mathbb{V}$ Sets}
+\subfile{Chapter2/2-7-CompleteV}
+
+\newpage
+\section{Construct the $\mathbb{V}^\star$ Sets}
+\subfile{Chapter2/2-8-FinalV}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

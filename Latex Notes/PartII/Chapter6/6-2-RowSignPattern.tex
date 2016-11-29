@@ -1,0 +1,60 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+To simplify the comparison of sign patterns between the rows of $\mat{U}_k$, we will create a new matrix $\mat{U}_k^\text{ (sign)} \in \R^{m \times k}$.  This new matrix will be based on $\mat{U}_k$, with the values for the elements of $\mat{U}_k^\text{ (sign)}$ being determined by the following definition
+
+\begin{align}
+\left( \mat{U}_k^\text{ (sign)} \right)_{ij} = \left\{ 
+\begin{array}{l c l}
+	1 & \text{\underline{if}} & \left( \mat{U}_k \right)_{ij} > 0 \\
+	0 & \text{\underline{if}} & \left( \mat{U}_k \right)_{ij} = 0 \\
+	-1 & \text{\underline{if}} & \left( \mat{U}_k \right)_{ij} < 0 \\
+\end{array} \right.
+\end{align}
+
+Here, the $\left( \mat{U}_k^\text{ (sign)} \right)_{ij}$ are the elements of $\mat{U}_k^\text{ (sign)}$, the $\left( \mat{U}_k \right)_{ij}$ are the elements of $\mat{U}_k$, and, for both $ \mat{U}_k^\text{ (sign)}$ and $\left( \mat{U}_k \right)_{ij}$, the indices $i$ and $j$ are such that $i \in \left[ 1, m \right]$ and $j \in \left[ 1, k \right]$. \newline
+
+
+Next, we will create a new $m$ by $m$ matrix to represent the connections between the rows of $\mat{U}_k$.  This new matrix will be denoted by $\mat{U}_k^\text{ (conn)}$, with $\mat{U}_k^\text{ (conn)} \in \R^{m \times m}$ and having elements $\left( \mat{U}_k^\text{ (conn)} \right)_{ij}$, for $i, j \in \left[ 1, m \right]$.  We will define each $\left( \mat{U}_k^\text{ (conn)} \right)_{ij}$ to be 1 if the $i$th row of $\mat{U}_k^\text{ (sign)}$ is equivalent to the $j$th row of $\mat{U}_k^\text{ (sign)}$.  That is to say, formally, that
+
+\begin{align}
+\left( \mat{U}_k^\text{ (conn)} \right)_{ij} = \left\{
+\begin{array}{l l}
+	1 & \text{\underline{if}} \quad \forall l \in \left[ 1, k \right], \left( \mat{U}_k^\text{ (sign)} \right)_{il} = \left( \mat{U}_k^\text{ (sign)} \right)_{jl} \quad \text{\underline{holds}} \\
+	0 & \text{\underline{otherwise}} 
+\end{array} \right.
+\end{align}
+
+Additionally, we note that the definition in (1.7) implies that the relation
+
+\begin{align*}
+\left( \mat{U}_k^\text{ (conn)} \right)_{ii} = 1, \; \forall i \in \left[ 1, m \right]
+\end{align*}
+
+must be valid as well. \newline
+
+
+The final step in comparing the sign patterns of the rows in $\mat{U}_k$ is to collect the connections between rows.  These connections between rows, indicated by their sign patterns, will be collected into the set of sets $\mathbb{U}_k^\text{ (rel)}$ with $m$ elements such that $\mathbb{U}_k^\text{ (rel)}$ may be defined
+
+\begin{align}
+\mathbb{U}_k^\text{ (rel)} = \biggl\{ \left(\mathbb{U}_k^\text{ (rel)}\right)_1, \left(\mathbb{U}_k^\text{ (rel)}\right)_2, \dots, \left(\mathbb{U}_k^\text{ (rel)}\right)_m \biggr\}  \notag
+\end{align}
+
+where the elements of $\mathbb{U}_k^\text{ (rel)}$ are all sets in their own right and are denoted by the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ for $i \in \left[ 1, m \right]$.  Each of these $k$ elements in $\mathbb{U}_k^\text{ (rel)}$ is defined such that for $\forall i \in \left[ 1, m \right]$ the $i$th element, $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$, is the set 
+
+\begin{align}
+\left( \mathbb{U}_k^\text{ (rel)} \right)_i \equiv \left\{ j \; \biggl| \biggr. \; j \in \left[ 1, m \right] \in \left( \mat{U}_k^\text{ (conn)} \right)_{ij} \neq 0 \right\}, \; \forall i \in \left[ 1, k \right] \; 
+\end{align}
+
+Additionally, note that this definition must imply that $\left\{ i \right\} \in \left( \mathbb{U}_k^\text{ (rel)} \right)_i, \; \forall i \in \left[ 1, m \right]$ is valid as well.  The elements of each of the sets $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ as defined above should only be considered as the initial elements of each $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$.  This is due to the fact that additional elements may be added to each $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ as described in the next section.
+
+
+\end{large}
+\end{flushleft}
+\end{document}

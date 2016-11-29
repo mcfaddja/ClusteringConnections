@@ -1,0 +1,106 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+The elements of $\mathbb{U}_k^\text{ (rel)}$ should contain the indices of all rows in the same cluster as each element.  That is to say, each $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ should be the set containing the indices of all the rows in the same cluster as row $i$, in addition to the index of row $i$; however, this is not guaranteed to be the case initially after the creation of the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ as described above.  To illustrate this, consider the values for some $\mat{U}_k^\text{ (conn)}$ as given below
+
+\begin{align}
+\mat{U}_k^\text{ (conn)} = \left[
+\begin{array}{c c c c c c}
+	1 & 1 & 0 & 0 & 0 & 0 \\
+	0 & 1 & 0 & 0 & 0 & 0 \\
+	0 & 1 & 1 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 1 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 0 & 1 & 1
+\end{array} \right]
+\end{align}
+
+Using the definition for the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ from (1.8), we obtain the following initial values for the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ generated from the $\mat{U}_k^\text{ (conn)}$ expressed above
+
+\begin{center}
+\begin{tabular}{c | l}
+$i$ & $\mathbb{U}_k^\text{ (rel)}$ \\
+\hline
+$1$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_1 = \left\{ 1, 2 \right\}$ \\
+$2$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_2 = \left\{ 2 \right\}$ \\
+$3$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_3 = \left\{ 2, 3 \right\}$ \\
+$4$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_4 = \left\{ 4 \right\}$ \\
+$5$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_5 = \left\{ 5 \right\}$ \\
+$6$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_6 = \left\{ 5, 6 \right\}$ 
+\end{tabular}
+\end{center}
+\begin{center}
+\emph{\textbf{Table ??:} Example of initial values of $\mathbb{U}_k^\text{ (rel)}$}
+\end{center}
+
+Clearly, rows 1, 2, and 3 belong in the same cluster; rows 5 and 6 also belong to the same cluster, but one different than the first; and row 4 belongs by itself.  However, with the exception of rows 4 and 6, the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ do not reflect this, at least not initially.  Thus, each of the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ must be completed by adding the other indices of rows which are in the same cluster as the row with which $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ is associated.  This will be accomplished using the intersect, $\left( \mathbb{U}_k^\text{ (rel)} \right)_i \bigcap \left( \mathbb{U}_k^\text{ (rel)} \right)_j$, and union, $\left( \mathbb{U}_k^\text{ (rel)} \right)_i \bigcup \left( \mathbb{U}_k^\text{ (rel)} \right)_j$, set operations.  \newline
+
+We will use the intersect set operation will indicate if the rows represented by $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ and $\left( \mathbb{U}_k^\text{ (rel)} \right)_j$ belong to the same cluster, as the operation will give
+
+\begin{align*}
+\left( \mathbb{U}_k^\text{ (rel)} \right)_i \bigcap \left( \mathbb{U}_k^\text{ (rel)} \right)_j = \emptyset
+\end{align*}
+
+if rows $i$ and $j$ belong to different clusters.  If this intersection yields a non-empty set, then we will use the second set operation, the union 
+
+\begin{align*}
+\left( \mathbb{U}_k^\text{ (rel)} \right)_i \bigcup \left( \mathbb{U}_k^\text{ (rel)} \right)_j
+\end{align*}
+
+to combine the elements of $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ and $\left( \mathbb{U}_k^\text{ (rel)} \right)_j$.  This discussion allows us to layout the following process for completing all of the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i \in \mathbb{U}_k^\text{ (rel)}$.  
+
+\begin{algorithm}
+	\KwData{Initial values for the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i \in \mathbb{U}_k^\text{ (rel)}$}
+	\KwResult{Completed values for the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i \in \mathbb{U}_k^\text{ (rel)}$, fully representing the cluster of each row by containing all elements of that cluster.}
+%\textbf{Begin} \;
+\Begin{
+	\For { $i = 1:m$ } {
+		\For { $j = 1:m$ } {
+			\If { $\left( \mathbb{U}_k^\text{ (rel)} \right)_i \bigcap \left( \mathbb{U}_k^\text{ (rel)} \right)_j \neq \emptyset$ } {
+				$\left( \mathbb{U}_k^\text{ (rel)} \right)_i = \left( \mathbb{U}_k^\text{ (rel)} \right)_i \bigcup \left( \mathbb{U}_k^\text{ (rel)} \right)_j$ \;
+				$\left( \mathbb{U}_k^\text{ (rel)} \right)_j = \left( \mathbb{U}_k^\text{ (rel)} \right)_j \bigcup \left( \mathbb{U}_k^\text{ (rel)} \right)_i$ \;
+			} 
+		}
+	} 
+}
+\caption{Completing the sets $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$, $\forall i \in \left[ i, m \right]$}
+\end{algorithm}
+
+Applying this algorithm to the example in \emph{\textbf{Table ??}}, we have 
+
+
+\begin{center}
+\begin{tabular}{c | l ||| l | l || l || l}
+$i$ & $\mathbb{U}_k^\text{ (rel)}$ & $i = 1$ & $i = 1$ & $i = 2$ & $i = 5$  \\
+ & & $j = 2$ & $j = 3$ & $j = 2$ & $j = 6$ \\
+\hline
+\hline
+$1$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_1 = \left\{ 1, 2 \right\}$ & & $=\left\{ 1, 2, 3 \right\}$ & &  \\
+\hline
+$2$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_2 = \left\{ 2 \right\}$ & $=\left\{ 1, 2 \right\}$ & & $=\left\{ 1, 2, 3 \right\}$ &  \\
+\hline
+$3$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_3 = \left\{ 2, 3 \right\}$ &  & $=\left\{ 1, 2, 3 \right\}$ & &  \\
+\hline
+$4$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_4 = \left\{ 4 \right\}$ & & & &  \\ 
+\hline
+$5$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_5 = \left\{ 5 \right\}$ & & & & $=\left\{ 5, 6 \right\}$  \\
+\hline
+$6$ & $\left( \mathbb{U}_k^\text{ (rel)} \right)_6 = \left\{ 5, 6 \right\}$ & & & &
+\end{tabular}
+\end{center}
+\begin{center}
+\emph{\textbf{Table ??:} Example of algorithm on the elements of $\mathbb{U}_k^\text{ (rel)}$,} \\
+\emph{with steps and elements without change omitted.}
+\end{center}
+
+
+
+\end{large}
+\end{flushleft}
+\end{document}

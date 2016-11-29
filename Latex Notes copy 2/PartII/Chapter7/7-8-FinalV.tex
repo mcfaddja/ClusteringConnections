@@ -1,0 +1,84 @@
+\documentclass[../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+To construct the sets of $\mathbb{V}^\star$, we look for unique $\mathbb{V}_i \in \mathbb{V}$ and then store each unique $\mathbb{V}_i$ as its own set in $\mathbb{V}^\star$.  We accomplish this by using the following subroutine
+
+\begin{algorithm}
+	\KwData{The final values for the elements of $\mathbb{V}$, $\bigl\{ \mathbb{V}_i, \mathbb{M}_i \bigr\}$, and the number of columns in $\mat{L}$, $n$.}
+	\KwResult{The sets of $\mathbb{V}^\star$, with each set in $\mathbb{V}^\star$ representing a column cluster and containing its elements. }
+	\Begin{
+	\textbf{int} nClust = 1; $\mathbb{V}^\star \left[ nClust \right] = \mathbb{V} \left[ 1, 1 \right]$ \;
+	\For { $i = 2:n$ } {
+		\textbf{boolean} isNew = \textbf{true}; $\mathbb{V}_i = \mathbb{V} \left[ i, 1 \right]$ \;
+		\For { $j = 1: \textrm{nClust}$ } {
+			$\mathbb{V}^\star_j = \mathbb{V}^\star \left[ j \right]$ \;
+			\If { $\mathbb{V}^\star_j = \mathbb{V}_i$ } {
+				isNew = \textbf{false} \;
+				\textbf{break} \;
+			} 
+		}
+		
+		\If { isNew } {
+			nClust ++ \;
+			$\mathbb{V}^\star \left[ nClust \right] = \mathbb{V}_i$ \;
+		}
+	} 
+}
+\caption{Compute the set of all column clusters sets, $\mathbb{V}^\star$. }
+\end{algorithm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{large}
+\end{flushleft}
+\end{document}

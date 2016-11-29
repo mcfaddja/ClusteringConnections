@@ -1,0 +1,74 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+
+We initially construct $\mathbb{V}$ by following the sub-routine (sub algorithm) given below
+
+\begin{algorithm}
+	\KwData{Connection Matrix for columns, $\mat{A}_V$, and the number of columns in $\mat{L}$, $n$.  }
+	\KwResult{Initial value for each of the $\bigl\{ \mathbb{V}_j, \mathbb{N}_j \bigr\} \in \mathbb{V}$. }
+	\Begin{
+	\For { $j = 1:n$ } {
+		$\mathbb{V}_j = \emptyset$; $\mathbb{N}_j = \emptyset$ \;
+		\For { $i = 1:n$ } {
+			\If { $\left( \mat{A}_V \right)_{ji} \neq 0$ } {
+				$\mathbb{V}_j = \mathbb{V}_j \bigcup \left\{ i \right\}$ \;
+				$\mathbb{N}_j = \mathbb{N}_j \bigcup \left\{ \left( \mat{A}_V \right)_{ji} \right\}$ \;
+			} 
+		}
+		$\mathbb{V} \left[ j, 1 \right] = \mathbb{V}_j$; $\mathbb{V} \left[ j, 2 \right] = \mathbb{N}_j$\; 
+	} 
+}
+\caption{Computing the initial value for each of the $\bigl\{ \mathbb{V}_j, \mathbb{N}_j \bigr\} \in \mathbb{V}$.}
+\end{algorithm}
+
+After the completion of this sub-routine, we will make a copy of this initial state of $\mathbb{V}$.  We denote this copy of this initial state as $\mathbb{V}_0$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{large}
+\end{flushleft}
+\end{document}

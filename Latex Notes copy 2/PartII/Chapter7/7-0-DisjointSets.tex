@@ -1,0 +1,30 @@
+\documentclass[../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+When $\mat{L}$ consists of a series of disjoint sets, our clustering algorithm proceeds according to the following simple steps
+
+\begin{enumerate}
+\item Compute $\mat{A}_U$
+\item Construct $\mathbb{U} = \Bigl\{ \left\{ \mathbb{U}_1, \mathbb{M}_1 \right\}, \left\{ \mathbb{U}_2, \mathbb{M}_2 \right\}, \dots, \left\{ \mathbb{U}_m, \mathbb{M}_m \right\} \Bigr\}$
+\item Complete the $\bigl\{ \mathbb{U}_i, \mathbb{M}_i \bigr\} \in \mathbb{U}$
+\item Construct the $\mathbb{U}^\star$ set of sets
+\item Compute $\mat{A}_V$
+\item Construct $\mathbb{V} = \Bigl\{ \left\{ \mathbb{V}_1, \mathbb{N}_1 \right\}, \left\{ \mathbb{V}_2, \mathbb{N}_2 \right\}, \dots, \left\{ \mathbb{V}_n, \mathbb{N}_n \right\} \Bigr\}$
+\item Complete the $\bigl\{ \mathbb{V}_j, \mathbb{N}_j \bigr\} \in \mathbb{V}$
+\item Construct the $\mathbb{V}^\star$ set of sets
+\item Reorder $\mat{L}$ in the a new, temporary matrix, $\mat{L}_0 \in \R^{m \times n}$.
+\item Reorder the temporary matrix, $\mat{L}_0$ into the final matrix $\mat{L}^\star \in \R^{m \times n}$.
+\end{enumerate}
+
+The description of our algorithm for the case when $\mat{L}$ is composed of non-disjoint sets is given later in chapter 3.
+
+
+\end{large}
+\end{flushleft}
+\end{document}

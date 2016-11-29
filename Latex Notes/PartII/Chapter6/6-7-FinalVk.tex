@@ -1,0 +1,44 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+Now that each set in $\mathbb{V}_k^\text{ (rel)}$ contains all of the elements in the same cluster as the column represented by that set, the next step is to uniquely identify each cluster by numbering them.  Additionally, we wish to associate the index number for each cluster with the set listing all of the elements of the cluster in question.  To do this, we create a new set of sets, $\mathbb{V}_k^\text{ (clust)}$, defined as
+
+\begin{align*}
+\mathbb{V}_k^\text{ (clust)} = \left\{ \left( \mathbb{V}_k^\text{ (clust)} \right)_1, \left( \mathbb{V}_k^\text{ (clust)} \right)_2, \dots, \left( \mathbb{V}_k^\text{ (clust)} \right)_c \right\}
+\end{align*}
+
+whose elements are sets of 2-tuples and with its cardinality, $\left| \mathbb{V}_k^\text{ (clust)} \right| = c$, being the number of unique clusters.  These sets of 2-tuples that comprise $\mathbb{V}_k^\text{ (clust)}$ are denoted $\left( \mathbb{V}_k^\text{ (clust)} \right)_i$ and are defined 
+
+\begin{align}
+\left( \mathbb{V}_k^\text{ (clust)} \right)_i = \left\{ i, \left( \mathbb{V}_k^\text{ (rel)} \right)_j \right\}
+\end{align}
+
+The first element of these 2-tuples, $i$, is the index of the cluster in question and the second element of these 2-tuples, $\left( \mathbb{V}_k^\text{ (rel)} \right)_j$, is the set of all elements in that cluster, with the index $j$ being the lowest index of $\mathbb{V}_k^\text{ (rel)}$ where that set occurs.  To build $\mathbb{V}_k^\text{ (clust)}$, we use the following process
+
+\begin{algorithm}
+	\KwData{Initial values for the $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \in \mathbb{V}_k^\text{ (rel)}$}
+	\KwResult{Completed $ \mathbb{V}_k^\text{ (clust)}$.}
+\Begin{
+	$\left( \mathbb{V}_k^\text{ (clust)} \right)_1 \longleftarrow \left\{ 1, \left( \mathbb{V}_k^\text{ (rel)} \right)_1 \right\}$\;
+	$c_0 \longleftarrow 1$\;
+	\For { $i = 2:n$ } {
+		\For { $j = 1:c_0$ } {
+			\If { $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \bigcap \left( \mathbb{V}_k^\text{ (clust)} \right)_j = \emptyset$ } {
+				$c_0 \longleftarrow \left( c_0 + 1\right)$\;
+				$\left( \mathbb{V}_k^\text{ (clust)} \right)_{c_0} \longleftarrow \left\{ c_0, \left( \mathbb{V}_k^\text{ (rel)} \right)_i \right\}$\;
+			} 
+		}
+	} 
+}
+\caption{Creating the sets $\left( \mathbb{V}_k^\text{ (clust)} \right)_i \in \mathbb{V}_k^\text{ (clust)}$, $\forall i \in \left[ i, c \right]$.}
+\end{algorithm}
+
+\end{large}
+\end{flushleft}
+\end{document}

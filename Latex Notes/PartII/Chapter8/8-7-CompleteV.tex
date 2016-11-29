@@ -1,0 +1,47 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+
+The elements of $\mathbb{V}$ must now be "\emph{completed}" so that they include any indirectly related elements.  Taking advantage of the disjointedness of $\mat{L}$, the "\emph{completion}" of the elements in $\mathbb{V}$ can be accomplished using the simple subroutine below
+
+\begin{algorithm}
+	\KwData{Initial values for the elements of $\mathbb{V}$, $\bigl\{ \mathbb{V}_j, \mathbb{N}_j \bigr\}$, and the number of columns in $\mat{L}$, $n$.}
+	\KwResult{The final values for each of the $\bigl\{ \mathbb{V}_j, \mathbb{N}_j \bigr\} \in \mathbb{V}$. }
+	\Begin{
+	\textbf{boolean} isChanged = \textbf{true} \;
+	\While {isChanged} {
+		isChanged = \textbf{false} \;
+		\For { $j = 1:n$ } {
+			$\mathbb{V}_j = \mathbb{V} \left[ j, 1 \right]$; $\mathbb{N}_j = \mathbb{V} \left[ j, 2 \right]$ \;
+			\For { $i = 1:n$ } {
+				$\mathbb{V}_i = \mathbb{V} \left[ i, 1 \right]$; $\mathbb{N}_i = \mathbb{V} \left[ i, 2 \right]$ \;
+				\If { $\mathbb{V}_j \neq \mathbb{V}_i$ \&\& $\mathbb{V}_j \bigcap \mathbb{V}_i \neq \emptyset$ } {
+					$\mathbb{V}_j = \mathbb{V}_j \bigcup \left\{ \mathbb{V}_i \ \mathbb{V}_j \right\}$ \;
+					$\mathbb{N}_j = \mathbb{N}_j \bigcup \left\{ \mathbb{N}_i \ \mathbb{N}_j \right\}$ \;
+					$\mathbb{V}_i = \mathbb{V}_i \bigcup \left\{ \mathbb{V}_j \ \mathbb{V}_i \right\}$ \;
+					$\mathbb{N}_i = \mathbb{N}_i \bigcup \left\{ \mathbb{N}_j \ \mathbb{N}_i \right\}$ \;
+					isChanged = \textbf{true} \;
+				} 
+				\If { isChanged } {
+					$\mathbb{V} \left[ i, 1 \right] = \mathbb{V}_i$; $\mathbb{V} \left[ i, 2 \right] = \mathbb{N}_i$ \;
+				}
+			}
+			\If { isChanged } {
+				$\mathbb{V} \left[ j, 1 \right] = \mathbb{V}_j$; $\mathbb{V} \left[ j, 2 \right] = \mathbb{N}_j$ \;
+			} 
+		} 
+	}
+}
+\caption{Computing the final value for each $\bigl\{ \mathbb{V}_j, \mathbb{N}_j \bigr\} \in \mathbb{V}$.}
+\end{algorithm}
+
+
+\end{large}
+\end{flushleft}
+\end{document}

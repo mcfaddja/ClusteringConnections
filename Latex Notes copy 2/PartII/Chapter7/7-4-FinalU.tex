@@ -1,0 +1,84 @@
+\documentclass[../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+To construct the sets of $\mathbb{U}^\star$, we look for unique $\mathbb{U}_i \in \mathbb{U}$ and then store each unique $\mathbb{U}_i$ as its own set in $\mathbb{U}^\star$.  We accomplish this by using the following subroutine
+
+\begin{algorithm}
+	\KwData{The final values for the elements of $\mathbb{U}$, $\bigl\{ \mathbb{U}_i, \mathbb{M}_i \bigr\}$, and the number of rows in $\mat{L}$, $m$.}
+	\KwResult{The sets of $\mathbb{U}^\star$, with each set in $\mathbb{U}^\star$ representing a row cluster and containing its elements. }
+	\Begin{
+	\textbf{int} nClust = 1; $\mathbb{U}^\star \left[ nClust \right] = \mathbb{U} \left[ 1, 1 \right]$ \;
+	\For { $i = 2:m$ } {
+		\textbf{boolean} isNew = \textbf{true}; $\mathbb{U}_i = \mathbb{U} \left[ i, 1 \right]$ \;
+		\For { $j = 1: \textrm{nClust}$ } {
+			$\mathbb{U}^\star_j = \mathbb{U}^\star \left[ j \right]$ \;
+			\If { $\mathbb{U}^\star_j = \mathbb{U}_i$ } {
+				isNew = \textbf{false} \;
+				\textbf{break} \;
+			} 
+		}
+		
+		\If { isNew } {
+			nClust ++ \;
+			$\mathbb{U}^\star \left[ nClust \right] = \mathbb{U}_i$ \;
+		}
+	} 
+}
+\caption{Compute the set of all row clusters sets, $\mathbb{U}^\star$. }
+\end{algorithm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{large}
+\end{flushleft}
+\end{document}

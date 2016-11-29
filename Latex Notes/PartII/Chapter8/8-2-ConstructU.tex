@@ -1,0 +1,74 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+
+We initially construct $\mathbb{U}$ by following the sub-routine (sub algorithm) given below
+
+\begin{algorithm}
+	\KwData{Connection Matrix for rows, $\mat{A}_U$, and the number of rows in $\mat{L}$, $m$.  }
+	\KwResult{Initial value for each of the $\bigl\{ \mathbb{U}_i, \mathbb{M}_i \bigr\} \in \mathbb{U}$. }
+	\Begin{
+	\For { $i = 1:m$ } {
+		$\mathbb{U}_i = \emptyset$; $\mathbb{M}_i = \emptyset$ \;
+		\For { $j = 1:m$ } {
+			\If { $\left( \mat{A}_U \right)_{ij} \neq 0$ } {
+				$\mathbb{U}_i = \mathbb{U}_i \bigcup \left\{ j \right\}$ \;
+				$\mathbb{M}_i = \mathbb{M}_i \bigcup \left\{ \left( \mat{A}_U \right)_{ij} \right\}$ \;
+			} 
+		}
+		$\mathbb{U} \left[ i, 1 \right] = \mathbb{U}_i$; $\mathbb{U} \left[ i, 2 \right] = \mathbb{M}_i$\; 
+	} 
+}
+\caption{Computing the initial value for each of the $\bigl\{ \mathbb{U}_i, \mathbb{M}_i \bigr\} \in \mathbb{U}$.}
+\end{algorithm}
+
+After the completion of this sub-routine, we will make a copy of this initial state of $\mathbb{U}$.  We denote this copy of this initial state as $\mathbb{U}_0$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{large}
+\end{flushleft}
+\end{document}

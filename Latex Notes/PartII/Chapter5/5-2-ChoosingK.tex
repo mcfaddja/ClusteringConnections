@@ -1,0 +1,43 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+From here, there are six possible ways to choose $\kappa$.  The first five are quite simple and are
+
+\begin{enumerate}
+\item $\kappa \ni \forall i \in \left[ 1, k \right], \sigma_i > \left( \sigma_1 / 2 \right)$
+\item $\kappa \ni \forall i \in \left[ 1, k \right], \sigma_i > \sqrt{\sigma_1}$
+\item $\kappa \ni \forall i \in \left[ 1, k \right], \sigma_i > \left( \frac{1}{2} \left( \left( \sigma_1 / 2 \right) + \sqrt{\sigma_1} \right) \right)$
+\item $\kappa \ni \forall i \in \left[ 1, k \right], \sigma_i > \min \left[ \left( \sigma_1 / 2 \right), \sqrt{\sigma_1} \right]$
+\item $\kappa \ni \forall i \in \left[ 1, k \right], \sigma_i > \max \left[ \left( \sigma_1 / 2 \right), \sqrt{\sigma_1} \right]$
+\end{enumerate}
+
+The sixth option is considerably more complicated as it requires find the point (singular value index) where the rate of change in the difference between adjacent singular values, $\Delta \sigma_i$, changes most sharply.  Where we define $\Delta \sigma_i$ as
+
+\begin{align}
+\Delta \sigma_i = \left\{
+\begin{array}{l l}
+	0 & \text{\underline{for}} \; i = 1 \\
+	\sigma_i - \sigma_{i + 1} & \text{\underline{otherwise}}
+\end{array} \right.
+\end{align}
+
+This is to say, we seek the point at which the difference between adjacent $\Delta \sigma_i$ changes most abruptly.  Thus, we seek the value for $j$, where $j \in \left( 1, r \right]$, such that
+
+\begin{align*}
+\Delta \sigma_j - \Delta \sigma_{j + 1}
+\end{align*}
+
+is a maximum.  Graphically, this appears as an 'elbow' in the graph of the singular values versus their associated indices.  The index, $j$, at which this 'elbow' occurs represents the desired value for $\kappa$.  If time permits, we will attempt to create an algorithm to automatically find the value for $\kappa$ using this method; however, for now, this will have to be done manually.  \newline
+
+Finally, with the required value of $\kappa$ in hand, it is possible to proceed to each of the three clustering algorithm that will be employed, starting with the \emph{\underline{SVD Signs}} algorithm.
+
+
+\end{large}
+\end{flushleft}
+\end{document}

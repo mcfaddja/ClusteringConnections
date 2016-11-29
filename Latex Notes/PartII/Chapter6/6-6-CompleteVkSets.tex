@@ -1,0 +1,46 @@
+\documentclass[../../ClusteringConnectionsMAIN.tex]{subfiles}
+ 
+
+
+
+\begin{document}
+\begin{flushleft}
+\begin{large}
+
+The elements of $\mathbb{V}_k^\text{ (rel)}$ should contain the indices of all columns in the same cluster as each element.  That is to say, each $\left( \mathbb{V}_k^\text{ (rel)} \right)_i$ should be the set containing the indices of all the columns in the same cluster as column $i$, in addition to the index of column $i$; however, this is not guaranteed to be the case initially after the creation of the $\left( \mathbb{V}_k^\text{ (rel)} \right)_i$ as described above. The same illustration we gave for the $\left( \mathbb{U}_k^\text{ (rel)} \right)_i$ \textbf{Section 1.2.2} illustrates this point as well.  Similar to the case with the rows, each of the $\left( \mathbb{V}_k^\text{ (rel)} \right)_i$ must be completed by adding the other indices of columns which are in the same cluster as the column with which $\left( \mathbb{V}_k^\text{ (rel)} \right)_i$ is associated.  This will be accomplished using the intersection, $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \bigcap \left( \mathbb{V}_k^\text{ (rel)} \right)_j$, and union, $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \bigcup \left( \mathbb{V}_k^\text{ (rel)} \right)_j$, set operations.  \newline
+
+We will use the intersect set operation will indicate if the columns represented by $\left( \mathbb{V}_k^\text{ (rel)} \right)_i$ and $\left( \mathbb{V}_k^\text{ (rel)} \right)_j$ belong to the same cluster, as the operation will give
+
+\begin{align*}
+\left( \mathbb{V}_k^\text{ (rel)} \right)_i \bigcap \left( \mathbb{V}_k^\text{ (rel)} \right)_j = \emptyset
+\end{align*}
+
+if columns $i$ and $j$ belong to different clusters.  If this intersection yields a non-empty set, then we will use the second set operation, the union 
+
+\begin{align*}
+\left( \mathbb{V}_k^\text{ (rel)} \right)_i \bigcup \left( \mathbb{V}_k^\text{ (rel)} \right)_j
+\end{align*}
+
+to combine the elements of $\left( \mathbb{V}_k^\text{ (rel)} \right)_i$ and $\left( \mathbb{V}_k^\text{ (rel)} \right)_j$.  This discussion allows us to layout the following process for completing all of the $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \in \mathbb{V}_k^\text{ (rel)}$.  
+
+\begin{algorithm}
+	\KwData{Initial values for the $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \in \mathbb{V}_k^\text{ (rel)}$}
+	\KwResult{Completed values for the $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \in \mathbb{V}_k^\text{ (rel)}$, fully representing the cluster of each column by containing all elements of that cluster.}
+\Begin{
+	\For { $i = 1:n$ } {
+		\For { $j = 1:n$ } {
+			\If { $\left( \mathbb{V}_k^\text{ (rel)} \right)_i \bigcap \left( \mathbb{V}_k^\text{ (rel)} \right)_j \neq \emptyset$ } {
+				$\left( \mathbb{V}_k^\text{ (rel)} \right)_i = \left( \mathbb{V}_k^\text{ (rel)} \right)_i \bigcup \left( \mathbb{V}_k^\text{ (rel)} \right)_j$ \;
+				$\left( \mathbb{V}_k^\text{ (rel)} \right)_j = \left( \mathbb{V}_k^\text{ (rel)} \right)_j \bigcup \left( \mathbb{V}_k^\text{ (rel)} \right)_i$ \;
+			} 
+		}
+	} 
+}
+\caption{Completing the sets $\left( \mathbb{V}_k^\text{ (rel)} \right)_i$, $\forall i \in \left[ i, n \right]$}
+\end{algorithm}
+
+
+
+\end{large}
+\end{flushleft}
+\end{document}
